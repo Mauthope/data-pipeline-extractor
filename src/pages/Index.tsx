@@ -65,8 +65,7 @@ const Index = () => {
     }
 
     try {
-      // Substitua a URL abaixo pela URL do seu Google Apps Script Web App
-      const GOOGLE_APPS_SCRIPT_URL = 'SUA_URL_DO_GOOGLE_APPS_SCRIPT';
+      const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxQSY46agkwGpgjGTPxRArL_UTpUaM0NUu4sc9172ovXc9igY8LqR55NV3aD1qmnuY_/exec';
       
       const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
         method: 'POST',
