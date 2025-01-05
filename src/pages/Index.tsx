@@ -64,11 +64,33 @@ const Index = () => {
       return;
     }
 
-    // Aqui você implementará a chamada para o Google Apps Script
-    toast({
-      title: "Info",
-      description: "Função de envio será implementada com o Google Apps Script",
-    });
+    try {
+      // Substitua a URL abaixo pela URL do seu Google Apps Script Web App
+      const GOOGLE_APPS_SCRIPT_URL = 'SUA_URL_DO_GOOGLE_APPS_SCRIPT';
+      
+      const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(fileData)
+      });
+
+      if (!response.ok) {
+        throw new Error('Erro ao enviar dados');
+      }
+
+      toast({
+        title: "Sucesso",
+        description: "Dados enviados para o Google Sheets com sucesso!",
+      });
+    } catch (error) {
+      toast({
+        title: "Erro",
+        description: "Erro ao enviar dados para o Google Sheets",
+        variant: "destructive"
+      });
+    }
   };
 
   return (
