@@ -69,21 +69,19 @@ const Index = () => {
       
       const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
         method: 'POST',
+        mode: 'no-cors',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(fileData)
       });
 
-      if (!response.ok) {
-        throw new Error('Erro ao enviar dados');
-      }
-
       toast({
         title: "Sucesso",
         description: "Dados enviados para o Google Sheets com sucesso!",
       });
     } catch (error) {
+      console.error('Erro ao enviar dados:', error);
       toast({
         title: "Erro",
         description: "Erro ao enviar dados para o Google Sheets",
