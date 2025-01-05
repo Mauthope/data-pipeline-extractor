@@ -82,19 +82,21 @@ const Index = () => {
           <div className="space-y-6">
             <div className="flex flex-col items-center justify-center border-2 border-dashed border-blue-200 rounded-lg p-8 bg-blue-50 hover:bg-blue-100 transition-colors">
               <FileSpreadsheet className="w-12 h-12 text-blue-500 mb-4" />
-              <label htmlFor="file-upload" className="cursor-pointer">
-                <Button variant="outline" className="gap-2">
-                  <Upload className="w-4 h-4" />
-                  Selecionar Arquivo XLSX
-                </Button>
-                <input
-                  id="file-upload"
-                  type="file"
-                  accept=".xlsx"
-                  className="hidden"
-                  onChange={handleFileUpload}
-                />
-              </label>
+              <Button
+                variant="outline"
+                className="gap-2"
+                onClick={() => document.getElementById('file-upload')?.click()}
+              >
+                <Upload className="w-4 h-4" />
+                Selecionar Arquivo XLSX
+              </Button>
+              <input
+                id="file-upload"
+                type="file"
+                accept=".xlsx"
+                className="hidden"
+                onChange={handleFileUpload}
+              />
             </div>
 
             {fileData && (
