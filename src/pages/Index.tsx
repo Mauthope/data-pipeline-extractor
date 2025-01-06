@@ -65,7 +65,7 @@ const Index = () => {
     }
 
     try {
-      const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxgWb-C_Ce7xHwXTYaTLj1dWoMpyY66vMEFiMQYO11I/dev';
+      const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyoXrmiK2QhQSQtfkQyTMuJA2x5fcuSMwEsmvh0db9hCCZhtzjDryF8XVvWXV_vhDjZaw/exec';
       
       const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
         method: 'POST',
