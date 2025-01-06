@@ -67,16 +67,44 @@ const Index = () => {
     try {
       const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyoXrmiK2QhQSQtfkQyTMuJA2x5fcuSMwEsmvh0db9hCCZhtzjDryF8XVvWXV_vhDjZaw/exec';
       
+      // Preparar os dados no formato esperado pelo Apps Script
+      const values = {
+        A6: fileData.A6,
+        F6: fileData.F6,
+        H6: fileData.H6,
+        I6: fileData.I6,
+        CN6: fileData.CN6,
+        CO6: fileData.CO6,
+        CP6: fileData.CP6,
+        CR6: fileData.CR6,
+        CS6: fileData.CS6,
+        CT6: fileData.CT6,
+        DA6: fileData.DA6,
+        DD6: fileData.DD6,
+        DE6: fileData.DE6,
+        DI6: fileData.DI6,
+        DQ6: fileData.DQ6,
+        EG6: fileData.EG6,
+        EM6: fileData.EM6,
+        EN6: fileData.EN6,
+        EO6: fileData.EO6,
+        EP6: fileData.EP6,
+        FB6: fileData.FB6,
+        FL6: fileData.FL6,
+        FV6: fileData.FV6,
+        FY6: fileData.FY6,
+        FZ6: fileData.FZ6,
+        GE6: fileData.GE6,
+        GF6: fileData.GF6
+      };
+      
       const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          spreadsheetId: '1gpgYrvpDkclasMPR3CLRSZ3cx2CSHWVlpSf0NcG40wA',
-          ...fileData // Enviando os dados diretamente como um objeto com as chaves das células
-        })
+        body: JSON.stringify(values)
       });
 
       toast({
