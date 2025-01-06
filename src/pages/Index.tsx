@@ -73,7 +73,10 @@ const Index = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(fileData)
+        body: JSON.stringify({
+          spreadsheetId: '1gpgYrvpDkclasMPR3CLRSZ3cx2CSHWVlpSf0NcG40wA',
+          data: fileData
+        })
       });
 
       toast({
