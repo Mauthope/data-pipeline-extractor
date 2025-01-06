@@ -67,6 +67,12 @@ const Index = () => {
     try {
       const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyoXrmiK2QhQSQtfkQyTMuJA2x5fcuSMwEsmvh0db9hCCZhtzjDryF8XVvWXV_vhDjZaw/exec';
       
+      // Transformar os dados em um array para enviar ao Google Sheets
+      const dataArray = Object.entries(fileData).map(([cell, value]) => ({
+        cell,
+        value: String(value)
+      }));
+
       const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
@@ -75,7 +81,7 @@ const Index = () => {
         },
         body: JSON.stringify({
           spreadsheetId: '1gpgYrvpDkclasMPR3CLRSZ3cx2CSHWVlpSf0NcG40wA',
-          data: fileData
+          data: dataArray
         })
       });
 
